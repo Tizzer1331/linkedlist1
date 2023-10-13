@@ -1,92 +1,8 @@
-// function LinkedList() {
-  
-//     head = null;
-//     length = 0; 
-  
-//     let Node = function(element) {
-//       this.element = element;
-//       this.next = null;
-//     }
-//     // defining a part of the list , a node as element (the data concerned and next being the link to the NEXT link in the chain
-//     this.head = function() {
-//       return head;
-//     }
-//     // the top most node (index 0)
-//     this.length = function() {
-//       return length;
-//     }
-    
-//     //length of the entire list
-
-//     this.add = function(element) {
-//       let newNode = new Node(element);  
-//       if(head === null) {
-//         head = newNode;
-//         //if there is no list (no topmost data) then add new node as head
-//       } else {
-//         let currentNode = head;
-//         while(currentNode.next !== null) {
-//           currentNode = currentNode.next;
-//         }
-//         currentNode.next = newNode;
-//         //scans through entire list finding the last position to add a new node there
-//       }
-//       length++;
-//       //increases total length of list when a new node is added to keep track
-//     }
-    
-//     this.remove = function(element){
-//     if(head === null) {
-//       return 
-//       console.log("empty linked list, nothing to remove");
-//     } else {
-//         let currentNode = head;
-//         if(currentNode.element === element){
-//           head = currentNode.next;
-//           length--;
-//           return head;
-//         } else {
-//             while(currentNode.next !== null) {
-//               if(currentNode.next.element === element){
-//                 currentNode.next = currentNode.next.next;
-//                 //once you find the desired node set PREVIOUS node to link to LATTER node
-//                 length--;
-//                 //reduce length duh
-//                 return head;
-//               }
-//               currentNode = currentNode.next;
-//             }
-//          }
-//       }
-//     }
-  
-//     this.find = function(element) {
-//       currentNode = head;
-//       position = 1;
-//       if(head === null){
-//         return "empty linked linked list";
-//         // obviously no list no find
-//       }
-//       else {
-//         if (currentNode.element === element) {
-//           return console.log(position);
-//           //once sorted through lsit return found value
-//         } else {
-//             while(currentNode.element !== element){
-//               currentNode = currentNode.next;
-//               position++;
-//               //if 
-//             }
-//             if (currentNode.element === element){
-//               return position;
-//             } else {
-//               console.log("this hits");
-//               return -1;
-//           }
-//         }
-//       }
-//     }
-//   }
+// SHIT TO add
+// IndexOf
+// elementAt
+// AddAtt
+// removeAt
 
 class ListNode{
   constructor(data){
@@ -114,6 +30,36 @@ function size(){
 function getFirst() {
   return this.head;
 }
+
+
+function Get(index) {
+  // Index is outside the bounds of the list
+  if (index < 0 || index > this.length) {
+    return null;
+  }
+  if (index === 0 )  {
+    return this.head;
+  }
+  let current = this.head;
+  let iterator =  0;
+  while (iterator < index) {
+    iterator++;
+    current = current.next;
+  }
+}
+  function Search(element) {
+    let current = this.head;
+    let index = 0;
+    while (current !== null) {
+       if (current.data === element) {
+          return `Element found at index ${index}`;
+       }
+       current = current.next;
+       index++;
+    }
+    return "Element not found";
+ }
+
 let myLinkedList = new LinkedList()
 let node1 = new ListNode(2)
 let node2= new ListNode(5)
@@ -129,3 +75,4 @@ node4.next=node5
 
 console.log(getFirst(myLinkedList));
 console.log(size(myLinkedList));
+console.log(Search(5));
