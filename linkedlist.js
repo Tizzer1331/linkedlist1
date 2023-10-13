@@ -1,6 +1,3 @@
-// SHIT TO add
-// IndexOf
-// elementAt
 // AddAtt
 // removeAt
 
@@ -60,6 +57,34 @@ function Get(index) {
     return "Element not found";
  }
 
+function NodeDelete(index){
+  let current = this.head;
+  let previous;
+  let iterator = 0;
+
+  while (iterator < index) {
+    iterator++;
+    previous = current;
+    current = current.next;
+  }
+  const nodeToDelete = current;
+  previous.next = current.next
+  return nodeToDelete
+}
+
+function NodeAdd (index,data){
+  let current = this.head;
+  let previous;
+  let iterator = 0;
+  while (iterator<index){
+  iterator++
+  previous=current
+  current= current.next
+}
+new ListNode(data,current.next)
+return "Successfuly created node"
+}
+
 let myLinkedList = new LinkedList()
 let node1 = new ListNode(2)
 let node2= new ListNode(5)
@@ -76,3 +101,5 @@ node4.next=node5
 console.log(getFirst(myLinkedList));
 console.log(size(myLinkedList));
 console.log(Search(5));
+console.log(NodeDelete(3));
+console.log(NodeAdd(3,95))
